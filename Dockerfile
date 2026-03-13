@@ -3,7 +3,7 @@ FROM ubuntu:latest AS build
 
 # Install JDK and Maven
 RUN apt-get update && \
-    apt-get install openjdk-17-jdk maven -y
+    apt-get install openjdk-21-jdk maven -y
 
 # Set the working directory
 WORKDIR /app
@@ -25,3 +25,4 @@ COPY --from=build /app/target/hostingAPI.jar api1.jar
 
 # Set the entrypoint to run the jar file
 ENTRYPOINT ["java", "-jar", "api1.jar"]
+
